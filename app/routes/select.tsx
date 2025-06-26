@@ -112,7 +112,7 @@ export default function SelectPage() {
                     </Col>
                 </Row>
                 <Text modifiers={['small', 'center']} color="secondary">
-                    Info text here
+                    Info text
                 </Text>
                 </VerticalSpacing>
             )}
