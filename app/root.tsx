@@ -10,8 +10,8 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import Sidenav from "./components/sidenav/sidenav";
-import { LabelProvider } from "@tehik-ee/tedi-react/tedi";
 import Providers from "./providers";
+import "../i18n";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -47,8 +47,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <Providers>
-      <Sidenav />
-      <Outlet />
+      <div className="flex">
+        <Sidenav />
+        <Outlet />
+      </div>
     </Providers>
   );
 }

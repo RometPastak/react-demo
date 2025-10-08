@@ -7,7 +7,7 @@ export default function Sidenav() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="fixed top-0 left-0 h-full">
+        <div className="min-h-dvh">
             <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
             <SideNav 
                 ariaLabel="Menu title" 
@@ -23,6 +23,11 @@ export default function Sidenav() {
                         children: 'Select',
                         href: '/select',
                         icon: 'lists'
+                    },
+                    {
+                        children: 'Number Field',
+                        href: '/number-field',
+                        icon: 'contrast_circle'
                     }
                 ]}
             />

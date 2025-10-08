@@ -15,6 +15,7 @@ export default function SelectPage() {
     const [value, setValue] = useState<typeof colourOptions[number]>();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isInputShort, setIsInputShort] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const onChange = useCallback((v: unknown) => {
         console.log(v);
@@ -28,9 +29,9 @@ export default function SelectPage() {
         { value: 'ocean', label: 'Ocean' },
         { value: 'blue', label: 'Blue', isDisabled: true },
         { value: 'purple', label: 'Purple' },
-        { value: 'red', label: 'Red' },
+        { value: 'red', label: 'Red', isDisabled: true },
         { value: 'orange', label: 'Orange' },
-        { value: 'yellow', label: 'Yellow' },
+        { value: 'yellow', label: 'Yellow', isDisabled: true },
         { value: 'green', label: 'Green' },
         { value: 'forest', label: 'Forest' },
         { value: 'slate', label: 'Slate' },
@@ -58,9 +59,13 @@ export default function SelectPage() {
         <Button onClick={() => setIsInputShort(prev => !prev)}>
             Toggle Input is short
         </Button>
+        <Button onClick={() => setIsDisabled(prev => !prev)}>
+            Toggle Disable Select
+        </Button>
         <Select
             value={value}
             onChange={(value) => onChange(value)}
+            disabled={isDisabled}
             noOptionsMessage={() => isInputShort ? "Input is short" : "No result"}
             loadingMessage={() => "Loading"}
             label={"Select label"}
@@ -83,7 +88,7 @@ export default function SelectPage() {
                     </Col>
                 )} */}
                 <Col>
-                    <Text color="brand">Some label</Text>
+                    <Text color="brand">{props.data.label}</Text>
                 </Col>
                 </Row>
             )}
